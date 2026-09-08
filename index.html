@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Gander brings omni perception, real-time interaction, and agentic capabilities into one framework. Explore twelve demos and the technical report.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gander: Omni Interaction Agent">
+  <meta property="og:description" content="Continuous audio-visual interaction meets reasoning and agentic execution.">
+  <title>Gander: Omni Interaction Agent</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css?v=20260908-11">
+  <script src="assets/content.js?v=20260908-15" defer></script>
+  <script src="assets/app.js?v=20260908-7" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="#top" class="brand" aria-label="Gander — Omni Interaction Agent"><span class="brand-symbol">Gander</span><span class="brand-tagline">Omni Interaction Agent</span></a>
+      <nav class="main-nav" data-i18n-aria="nav.label" aria-label="Main navigation">
+        <a href="Omni-Interaction-Agent/" data-i18n="nav.blog">Technical blog</a>
+        <a href="gander.pdf" target="_blank" rel="noopener" data-i18n="nav.paper">Technical report</a>
+      </nav>
+      <div class="language-switch" role="group" data-i18n-aria="language.label" aria-label="Page language">
+        <button type="button" data-lang="en" aria-pressed="true" data-i18n-aria="language.en" aria-label="Switch to English">EN</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-lang="zh" aria-pressed="false" data-i18n-aria="language.zh" aria-label="切换为中文">中文</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <h1 id="hero-title" data-i18n="hero.title">Gander: Omni Interaction Agent</h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">Continuous perception, real-time dialogue, asynchronous action</p>
+      <p class="hero-description" data-i18n="hero.description">Gander connects streaming audio and video with full-duplex dialogue and long-running agentic work,
+so conversation can continue while tasks run in the background.</p>
+      <div class="hero-links">
+        <a class="button" href="#capabilities"><span data-i18n="hero.demos">Explore demos</span><span aria-hidden="true">↓</span></a>
+        <a class="button" href="gander.pdf" target="_blank" rel="noopener"><span data-i18n="hero.paper">Technical report</span><span aria-hidden="true">↗</span></a>
+        <a class="button" href="https://github.com/Gander" target="_blank" rel="noopener"><span data-i18n="hero.github">GitHub</span><span aria-hidden="true">↗</span></a>
+        <a class="button" href="https://huggingface.co/Gander/models" target="_blank" rel="noopener"><span data-i18n="hero.hfModel">Huggingface(Model)</span><span aria-hidden="true">↗</span></a>
+        <a class="button" href="https://huggingface.co/Gander/datasets" target="_blank" rel="noopener"><span data-i18n="hero.hfDataset">Huggingface(Dataset)</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section id="capabilities" class="capabilities container section" aria-labelledby="cap-heading">
+      <div class="section-heading"><div><p class="eyebrow" data-i18n="cap.eyebrow">01 / CAPABILITY DEMOS</p><h2 id="cap-heading" data-i18n="cap.title">Twelve demos of continuous interaction.</h2></div><p class="section-intro" data-i18n="cap.intro">Explore how Gander handles screen-grounded tasks, continuous perception, bidirectional interpretation, multi-party interaction, and everyday reasoning.</p></div>
+      <div id="capability-tabs" class="capability-tabs" role="tablist" data-i18n-aria="cap.tabs" aria-label="Choose a capability"></div>
+      <div class="demo-stage">
+        <div class="demo-toolbar">
+          <div class="demo-marker"><span class="signal-dot" aria-hidden="true"></span><span data-i18n="cap.recording">RECORDED DEMO</span></div>
+          <div class="pagination">
+            <span id="page-count" class="page-count" aria-hidden="true">01 <span>/ 12</span></span>
+            <button type="button" class="arrow-button" id="previous-capability" data-i18n-aria="cap.prev" aria-label="Previous capability"><span aria-hidden="true">←</span></button>
+            <button type="button" class="arrow-button" id="next-capability" data-i18n-aria="cap.next" aria-label="Next capability"><span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+        <div id="capability-panels"></div>
+        <div id="capability-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+      </div>
+      <p class="media-footnote" data-i18n="cap.languageNote">Original audio and on-screen captions are preserved.</p>
+      <noscript><p>Enable JavaScript to explore the twelve interactive demos and language switch, or <a href="gander.pdf">read the full technical report</a>. 请启用 JavaScript 使用十二段演示及语言切换，或阅读完整技术报告。</p></noscript>
+    </section>
+
+    <section id="research" class="research section" aria-labelledby="research-heading">
+      <div class="container">
+        <div class="reading-width section-opening"><p class="eyebrow" data-i18n="research.eyebrow">02 / SYSTEM ARCHITECTURE</p><h2 id="research-heading" class="line-heading" data-i18n="research.title">Perception, conversation, and action—connected.</h2><p class="lead" data-i18n="research.intro">Gander unifies omni perception, real-time interaction, and agentic capabilities. Streaming speech, vision, and text remain part of the same evolving context, so interaction can continue while longer tasks run in the background.</p></div>
+        <figure class="paper-figure overview-figure"><a href="assets/figures/overview.webp" target="_blank" rel="noopener"><img src="assets/figures/overview.webp" width="2401" height="1344" loading="lazy" decoding="async" data-i18n-alt="fig.overviewAlt" alt="Gander overview"></a><figcaption data-i18n="fig.overview">Figure 1 · Gander brings together continuous multimodal interaction and asynchronous agentic execution.</figcaption></figure>
+        <div class="reading-width subsection"><h3 data-i18n="method.title">Brain and Cerebellum, working together.</h3><p data-i18n="method.intro">Separate responsibilities, shared context. Three cooperating components connect immediate conversation with longer-horizon work.</p></div>
+        <div class="architecture-parts">
+          <article><span class="part-number" aria-hidden="true">01</span><h4 data-i18n="method.front.title">Front Cerebellum</h4><p data-i18n="method.front.description">Perceives streaming audio and visual input, handles real-time dialogue, and decides when to listen, speak, interrupt, or delegate.</p></article>
+          <article><span class="part-number" aria-hidden="true">02</span><h4 data-i18n="method.runtime.title">Agent Orchestration Runtime</h4><p data-i18n="method.runtime.description">Coordinates asynchronous tasks, tracks execution state, and routes progress and results back into the ongoing interaction.</p></article>
+          <article><span class="part-number" aria-hidden="true">03</span><h4 data-i18n="method.back.title">Back Brain</h4><p data-i18n="method.back.description">Uses plug-and-play reasoning agents for complex reasoning, tool use, and longer-horizon task execution.</p></article>
+        </div>
+        <figure class="paper-figure"><a href="assets/figures/architecture.webp" target="_blank" rel="noopener"><img src="assets/figures/architecture.webp" width="2401" height="627" loading="lazy" decoding="async" data-i18n-alt="fig.architectureAlt" alt="Brain–Cerebellum architecture"></a><figcaption data-i18n="fig.architecture">Figure 2 · The front cerebellum, orchestration runtime, and back brain share task progress and multimodal context.</figcaption></figure>
+        <div class="streaming-block reading-width subsection"><h3 data-i18n="stream.title">One timeline for perception, decisions, and speech.</h3><p data-i18n="stream.description">Inside the front cerebellum, a Thinker–Talker architecture separates semantic planning from speech generation. Incoming observations, interaction decisions, and model outputs are serialized along a shared timeline.</p><div class="model-settings"><div><span data-i18n="stream.chunkLabel">Streaming unit</span><strong data-i18n="stream.chunkValue">1 second</strong></div><div><span data-i18n="stream.contextLabel">Sliding context</span><strong data-i18n="stream.contextValue">128 chunks</strong></div></div><p class="note" data-i18n="stream.note">These are model settings, not a measurement of end-to-end response latency.</p></div>
+        <figure class="paper-figure"><a href="assets/figures/thinker-talker.webp" target="_blank" rel="noopener"><img src="assets/figures/thinker-talker.webp" width="2401" height="1640" loading="lazy" decoding="async" data-i18n-alt="fig.thinkerAlt" alt="Streaming Thinker–Talker"></a><figcaption data-i18n="fig.thinker">Figure 4 · The streaming Thinker–Talker architecture aligns perception, control, text, and speech generation.</figcaption></figure>
+        <div class="reading-width subsection training"><h3 data-i18n="training.title">Learning when to listen, respond, and delegate.</h3><p data-i18n="training.intro">The front cerebellum starts from MiniCPM-o 4.5. An interaction corpus of approximately 2.7 million examples covers speech, audio-visual and agentic interaction, plus robustness and negative supervision.</p><ol class="training-steps">
+          <li><h4 data-i18n="training.data">Interaction data</h4><p data-i18n="training.data.description">Time-aligned examples include turn-taking, interruptions, backchannels, visual events, task lifecycles, and situations in which the model should remain silent.</p></li>
+          <li><h4 data-i18n="training.thinker">Stage 1 · Thinker training</h4><p data-i18n="training.thinker.description">Train the language model and audio projection layer while freezing perception encoders and speech-generation modules. Learn streaming responses, interaction decisions, and tool actions.</p></li>
+          <li><h4 data-i18n="training.talker">Stage 2 · Talker training</h4><p data-i18n="training.talker.description">Freeze the Thinker and optimize only the TTS projector and decoder to produce aligned streaming speech.</p></li>
+        </ol><a class="source-link" href="gander.pdf#page=14" target="_blank" rel="noopener"><span data-i18n="training.source">Training details: Section 4 of the technical report.</span><span aria-hidden="true"> ↗</span></a></div>
+      </div>
+    </section>
+
+    <section id="results" class="results container section" aria-labelledby="results-heading">
+      <div class="reading-width section-opening"><p class="eyebrow" data-i18n="results.eyebrow">03 / BENCHMARKS</p><h2 id="results-heading" data-i18n="results.title">Measuring interaction, speech, and understanding.</h2><p class="lead" data-i18n="results.intro">The report evaluates interaction timing, spoken conversation, and omni understanding. The tables below retain the reported baselines, metric scales, and evaluation caveats.</p></div>
+      <div id="result-tabs" class="result-tabs" role="tablist" data-i18n-aria="results.tabs" aria-label="Evaluation benchmarks"></div>
+      <div id="result-panels"></div>
+      <div class="limitations"><h3 data-i18n="limitations.title">What remains to improve.</h3><p data-i18n="limitations.intro">The report identifies clear areas for improvement alongside the interaction gains.</p><div class="limitation-grid">
+        <article><h4 data-i18n="limitations.routing">Task routing &amp; execution</h4><p data-i18n="limitations.routingText">Conservative delegation and lower task accuracy leave room to improve how interaction connects to reliable execution.</p></article>
+        <article><h4 data-i18n="limitations.speech">Spoken output fidelity</h4><p data-i18n="limitations.speechText">Speech generation and recognition can lose information between the Thinker’s text and the end-to-end spoken response.</p></article>
+        <article><h4 data-i18n="limitations.context">Context &amp; evaluation</h4><p data-i18n="limitations.contextText">Long-context and memory management, further post-training, and unified evaluation remain directions for future work.</p></article>
+      </div></div>
+    </section>
+
+  </main>
+  <footer class="site-footer container"><a href="#top" class="footer-brand">Gander</a><a href="gander.pdf" target="_blank" rel="noopener" data-i18n="footer.report">Read the technical report</a><a href="#top"><span data-i18n="footer.top">Back to top</span><span aria-hidden="true"> ↑</span></a></footer>
+</body>
+</html>
