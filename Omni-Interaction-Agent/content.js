@@ -78,8 +78,6 @@ window.GANDER_BLOG = {
       "p.evaluation.duplex": "Full-Duplex-Bench v3 从交互时机和任务完成情况两个方面评估全双工能力。在全部 100 个场景中，Gander 的适时接话率为 100.0%，提前抢话率为 8.0%；严格任务成功指标 Pass@1 为 0.400，仍低于表中的六个基线。仅以用户转写文本驱动后端大脑时，Pass@1 为 0.520，但这一设置绕过了前端小脑与音频处理，无法评估交互时机。交互表现与任务准确率需要分别考察。评估中的后端大脑使用未经微调的 GPT-5.6。",
       "p.evaluation.speech": "语音对话评估使用 SpokenQA 与 VoiceBench 的 2,052 条语音样本，语音直接输入 Thinker，并对输出的文本回答评分。Gander 在 Llama Questions、Web Questions、AlpacaEval 和 SD-QA 上分别得到 75.60%、59.30%、3.96/5 和 46.84%。论文表 4 按交互方式将模型分为轮次式与全双工流式两组：Gander 在全双工组的前两项指标上得分最高，后两项排名第二。比较主要在组内进行，因为流式模型还受到实时处理和交互决策的约束。这 2,052 条样本均未调用后端大脑，成绩反映的是前端小脑的能力。",
       "p.evaluation.omni": "音视频理解评估由前端直接输出文本答案。Gander 在 WorldSense 的 3,172 道题和 Daily-Omni 的 1,197 道题上，准确率分别为 49.62% 和 78.53%，均低于其初始化模型。另一方面，联合使用音频和视频优于表现更好的单一模态输入，其中 Daily-Omni 的融合增益为 19.13 个百分点。理解准确率与多模态融合收益反映不同方面的表现，需要分别解读。",
-      "heading.outlook": "全模态交互智能体的挑战与未来方向",
-      "p.outlook.next": "进一步提升 Gander 的协作能力，需要更准确的任务委派、更稳定的语音输出，以及大脑与小脑之间更充分的信息交换。长上下文与记忆管理、数据扩展、稳定的后训练方法和统一评估，也是后续研究的重点。这些改进将共同服务于同一个目标：让智能体在长时间、多轮次的交流中持续理解用户，并可靠地推进任务。",
       "p.perception.video": "理解一段视频，需要把当前画面与前面的情节联系起来。以下是项目提供的视频理解素材，保留了原始画面与声音。",
       "p.dialogue.robust": "在关于护照丢失的对话中，周围出现了无关人声，Gander 仍围绕当前用户的问题继续交流。这类场景要求模型结合谈话内容与上下文，判断哪些话语是对自己说的，避免被无关声音带离当前话题。",
       "toc.intro": "全模态交互智能体",
@@ -89,7 +87,6 @@ window.GANDER_BLOG = {
       "toc.streaming": "流式 Thinker–Talker",
       "toc.training": "交互数据构建",
       "toc.evaluation": "能力评估与基准测试",
-      "toc.outlook": "挑战与未来方向",
       "video.visual-proactivity.title": "视觉主动交互",
       "video.visual-proactivity.caption": "记住“看到企鹅时告诉我”的要求，在企鹅出现时主动提醒。",
       "video.video-understanding.title": "视频理解",
@@ -213,8 +210,6 @@ window.GANDER_BLOG = {
       "p.evaluation.duplex": "Full-Duplex-Bench v3 evaluates conversational timing and task completion across 100 scenarios. Gander achieves 100.0% take-turn accuracy and an 8.0% premature-interruption rate. Its strict task-success Pass@1 is 0.400, below the six listed baselines. Driving the back brain directly from the user transcript yields a Pass@1 of 0.520, but this setting bypasses the front cerebellum and audio processing and cannot measure interaction timing. Conversational behavior and task accuracy should therefore be assessed separately. The back brain uses GPT-5.6 without fine-tuning in this evaluation.",
       "p.evaluation.speech": "The spoken-conversation evaluation uses 2,052 utterances from SpokenQA and VoiceBench. Speech enters the Thinker directly, and its response is scored as text. Gander scores 75.60% on Llama Questions, 59.30% on Web Questions, 3.96/5 on AlpacaEval, and 46.84% on SD-QA. Table 4 groups models by interaction regime: within the full-duplex streaming group, Gander ranks first on the two SpokenQA subsets and second on the two VoiceBench subsets. Comparisons are read primarily within groups because streaming models also face real-time processing and interaction-decision constraints. The back brain was never invoked on these 2,052 utterances, so the scores reflect the front cerebellum alone.",
       "p.evaluation.omni": "In the audio-visual understanding evaluation, the front cerebellum answers directly in text. Gander scores 49.62% on 3,172 WorldSense questions and 78.53% on 1,197 Daily-Omni questions, both below its initialization model. Joint audio and video input nevertheless outperforms the better single modality, with a gain of 19.13 percentage points on Daily-Omni. Understanding accuracy and the benefit of combining modalities measure different aspects of performance and should be read separately.",
-      "heading.outlook": "Challenges and Future Directions for Omni Interaction Agents",
-      "p.outlook.next": "Further progress calls for more accurate task delegation, more reliable speech output, and richer information exchange between the brain and cerebellum. Longer context, memory management, larger datasets, stable post-training methods, and unified evaluation are also priorities. Together, these improvements aim to make the agent a more dependable collaborator over extended conversations and tasks.",
       "p.perception.video": "Understanding video requires relating the current scene to what came before. The source clip below accompanies the project’s video-understanding example and retains its original visuals and audio.",
       "p.dialogue.robust": "Unrelated voices enter a conversation about a lost passport, but Gander stays focused on the current user’s question. This setting calls for using conversational context to determine which speech is addressed to the assistant and which belongs to the surrounding environment.",
       "toc.intro": "Omni interaction agent",
@@ -224,7 +219,6 @@ window.GANDER_BLOG = {
       "toc.streaming": "Streaming Thinker–Talker",
       "toc.training": "Interaction data construction",
       "toc.evaluation": "Evaluation benchmarks",
-      "toc.outlook": "Challenges and future directions",
       "video.visual-proactivity.title": "Proactive visual interaction",
       "video.visual-proactivity.caption": "Remember the request to watch for a penguin and give a reminder when it appears.",
       "video.video-understanding.title": "Video understanding",
@@ -281,7 +275,6 @@ window.GANDER_BLOG = {
     "architecture",
     "streaming",
     "training",
-    "evaluation",
-    "outlook"
+    "evaluation"
   ]
 };
