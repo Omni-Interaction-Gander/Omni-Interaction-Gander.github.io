@@ -175,11 +175,21 @@
     data.columns.forEach(column => headings.append(column.startsWith('column.') ? translated('th', column, { scope: 'col' }) : element('th', { scope: 'col' }, column)));
     head.append(headings);
     table.append(head);
-    let body = element('tbody');
-    table.append(body);
-    data.rows.forEach(row => {
-      const reference = row[0] === 'Gander (Thinker text)';
-      if (reference) { body = element('tbody', { class: 'reference-body' }); table.append(body); }
+    let body;
+    data.rows.forEach((row, rowIndex) => {
+      const group = data.groups?.find(item => item.start === rowIndex);
+      const reference = data.referenceRows?.includes(rowIndex);
+      if (!body || group || reference) {
+        body = element('tbody', { class: reference ? 'reference-body' : '' });
+        table.append(body);
+      }
+      if (group) {
+        const labelId = `table-${data.id}-group-${rowIndex}`;
+        body.setAttribute('aria-labelledby', labelId);
+        const groupRow = element('tr', { class: 'table-group' });
+        groupRow.append(translated('th', group.label, { id: labelId, scope: 'rowgroup', colspan: data.columns.length }));
+        body.append(groupRow);
+      }
       const tr = element('tr', { class: row[0] === 'Gander' ? 'gander-row' : reference ? 'reference-row' : '' });
       row.forEach((value, cellIndex) => {
         const tag = cellIndex === 0 ? 'th' : 'td';
@@ -190,9 +200,12 @@
     });
     scroll.append(table);
     outer.append(scroll, translated('p', `table${data.id}.note`, { class: 'table-note' }));
-    if (data.id === 3) outer.append(translated('p', 'table3.glossary', { class: 'table-glossary' }));
+    if (data.id === 3) {
+      outer.append(translated('p', 'table3.referenceNote', { class: 'table-note' }));
+      outer.append(translated('p', 'table3.glossary', { class: 'table-glossary' }));
+    }
     const source = element('p', { class: 'table-source' });
-    const link = element('a', { href: `gander.pdf#page=${({3:20,4:21,5:22,6:22})[data.id]}`, target: '_blank', rel: 'noopener', class: 'source-link' });
+    const link = element('a', { href: `gander.pdf?v=29ef45061bce#page=${({3:20,4:21,5:22,6:22})[data.id]}`, target: '_blank', rel: 'noopener', class: 'source-link' });
     link.append(translated('span', 'results.source'), element('span', { 'aria-hidden': 'true' }, ' ↗'));
     source.append(link);
     outer.append(source);

@@ -44,7 +44,6 @@ img { display: block; max-width: 100%; height: auto; }
 .article-kicker { font-size: 12px; letter-spacing: .14em; font-weight: 600; color: var(--blue); margin-bottom: 20px; }
 h1 { max-width: 1060px; font-size: clamp(34px, 4.15vw, 56px); line-height: 1.35; font-weight: 650; letter-spacing: -.04em; text-wrap: balance; }
 html[lang="en"] h1 { max-width: 1000px; line-height: 1.17; letter-spacing: -.035em; }
-.article-deck { font-size: 18px; color: #687284; line-height: 1.8; max-width: 840px; margin-top: 23px; }
 .article-layout { display: grid; grid-template-columns: 235px minmax(0, 1fr); column-gap: 88px; padding-top: 50px; padding-bottom: 96px; align-items: start; }
 .sidebar { position: sticky; top: 118px; font-size: 14px; max-height: calc(100vh - 144px); overflow-y: auto; scrollbar-width: thin; padding: 2px 8px 12px 0; }
 .metadata { margin: 0; display: grid; row-gap: 22px; }
@@ -61,7 +60,6 @@ html[lang="en"] .metadata dd[data-i18n="meta.by"] { white-space: pre-line; text-
 .toc li + li { margin-top: 5px; }
 .toc a { display: block; color: #7a8493; border-left: 1px solid var(--line); font-size: 13px; line-height: 1.65; padding: 5px 0 5px 15px; transition: color .15s, border-color .15s; }
 .toc a[aria-current="location"] { color: var(--blue); border-color: var(--blue); font-weight: 550; }
-.sidebar-paper { display: inline-flex; align-items: center; gap: 13px; font-size: 13px; margin-top: 25px; color: var(--blue); }
 .article { min-width: 0; color: var(--text); }
 .article p { line-height: 1.95; overflow-wrap: break-word; }
 .article p + p { margin-top: 23px; }
@@ -103,11 +101,11 @@ tbody th { font-weight: 400; }
 th:first-child { text-align: left; }
 tbody tr:last-child > * { border-bottom: 0; }
 tr.gander > * { color: #244eca; background: #f0f4ff; font-weight: 600; }
+tbody.reference-body > tr > * { border-top: 2px solid #b9c7e6; background: #f8f9fc; color: #556177; font-weight: 400; }
 .table-note { margin-top: 12px; color: #7a8494; font-size: 13px; }
 .table-note a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
-.article-end { margin-top: 55px; border-top: 1px solid var(--line); padding-top: 29px; }
 .report-title { font-size: 15px; color: var(--ink); font-weight: 550; }
-.resource-links { display: flex; align-items: center; flex-wrap: wrap; gap: 11px 27px; margin-top: 18px; font-size: 14px; }
+.resource-links { display: flex; align-items: center; flex-wrap: wrap; gap: 11px 27px; margin-top: 23px; font-size: 14px; }
 .resource-links a { color: var(--blue); display: inline-flex; gap: 10px; align-items: center; min-height: 38px; }
 .footer { border-top: 1px solid var(--line); padding: 32px 0; }
 .footer-inner { display: flex; align-items: center; gap: 28px; font-size: 13px; color: #8a92a0; }
@@ -129,10 +127,8 @@ tr.gander > * { color: #244eca; background: #f0f4ff; font-weight: 600; }
   .toc { margin-top: 23px; padding-top: 18px; }
   .toc ol { display: grid; grid-template-columns: repeat(2,1fr); gap: 4px 20px; }
   .toc li + li { margin: 0; }
-  .sidebar-paper { display: none; }
   .article { max-width: 780px; width: 100%; margin: auto; }
   h1 { max-width: 800px; font-size: 40px; }
-  .article-deck { font-size: 17px; }
 }
 @media (max-width: 760px) {
   .header-nav { display: none; }
@@ -156,7 +152,6 @@ tr.gander > * { color: #244eca; background: #f0f4ff; font-weight: 600; }
   .article-kicker { font-size: 12px; letter-spacing: .1em; margin-bottom: 13px; }
   h1 { font-size: 32px; line-height: 1.45; letter-spacing: -.025em; }
   html[lang="en"] h1 { font-size: 34px; line-height: 1.2; }
-  .article-deck { margin-top: 17px; font-size: 15px; line-height: 1.85; }
   .article-layout { padding-top: 25px; gap: 30px; padding-bottom: 60px; }
   .metadata { column-gap: 27px; }
   .metadata dt { font-size: 12px; }
@@ -182,8 +177,7 @@ tr.gander > * { color: #244eca; background: #f0f4ff; font-weight: 600; }
   .table-note, .source-line { font-size: 12px; }
   .table-scroller { border-radius: 5px; }
   table { min-width: 550px; }
-  .article-end { margin-top: 39px; padding-top: 24px; }
-  .resource-links { font-size: 13px; gap: 9px 23px; }
+  .resource-links { font-size: 13px; gap: 9px 23px; margin-top: 17px; }
   .footer { padding-block: 25px; }
   .footer-inner { font-size: 12px; gap: 18px; }
 }
