@@ -3,6 +3,7 @@ window.GANDER_BLOG = {
   "strings": {
     "zh": {
       "title": "Gander：全模态交互智能体",
+      "tagline": "持续的全模态感知、实时交互与异步智能体行动",
       "meta.description": "通过十二个演示，了解 Gander 如何结合语音、视觉与实时对话完成智能体任务，并介绍小脑—大脑架构、交互数据构建及实验评估。",
       "nav.home": "项目主页",
       "nav.label": "站点导航",
@@ -135,6 +136,7 @@ window.GANDER_BLOG = {
     },
     "en": {
       "title": "Gander: Omni Interaction Agent",
+      "tagline": "Continuous omni perception, real-time interaction, asynchronous agentic action",
       "meta.description": "Explore twelve Gander demos, from spoken and visual interaction to agentic tasks, alongside the Cerebellum–Brain architecture, interaction data construction, and evaluation results.",
       "nav.home": "Project page",
       "nav.label": "Site navigation",

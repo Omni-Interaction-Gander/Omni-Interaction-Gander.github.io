@@ -205,7 +205,7 @@
       outer.append(translated('p', 'table3.glossary', { class: 'table-glossary' }));
     }
     const source = element('p', { class: 'table-source' });
-    const link = element('a', { href: `gander.pdf?v=29ef45061bce#page=${({3:20,4:21,5:22,6:22})[data.id]}`, target: '_blank', rel: 'noopener', class: 'source-link' });
+    const link = element('a', { href: `https://arxiv.org/pdf/2609.08977#page=${({3:20,4:21,5:22,6:22})[data.id]}`, target: '_blank', rel: 'noopener', class: 'source-link' });
     link.append(translated('span', 'results.source'), element('span', { 'aria-hidden': 'true' }, ' ↗'));
     source.append(link);
     outer.append(source);
