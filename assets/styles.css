@@ -56,7 +56,7 @@ img { display: block; width: 100%; height: auto; }
 
 .hero { text-align: center; padding-top: 78px; padding-bottom: 72px; }
 .signal-dot { display: inline-block; flex-shrink: 0; width: 6px; height: 6px; background: var(--blue); border-radius: 100%; box-shadow: 0 0 0 4px rgb(41 88 235 / 8%); }
-.hero h1 { max-width: 1120px; margin-inline: auto; font-size: clamp(2rem, 5.1vw, 4.6rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.1; color: #17202e; white-space: nowrap; }
+.hero h1 { max-width: 1120px; margin-inline: auto; font-size: clamp(.75rem, 3.8vw, 3.2rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.1; color: #17202e; white-space: nowrap; }
 .hero-tagline { max-width: none; margin: 20px auto 0; font-family: var(--display-font); font-size: clamp(.55rem, 2.2vw, 1.7rem); font-weight: 550; letter-spacing: -.025em; color: var(--ink); line-height: 1.35; white-space: nowrap; }
 .hero-links { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 31px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; border: 1px solid #cfd7e4; border-radius: 8px; padding: 11px 17px; background: #fff; color: var(--ink); font-size: .875rem; font-weight: 550; white-space: nowrap; transition: color .18s, background .18s, border-color .18s, box-shadow .18s; }
@@ -184,7 +184,7 @@ tbody .table-group th { background: #edf1f8; color: #38465e; font-weight: 600; b
   .language-switch { margin: 0; font-size: .8125rem; }
   .language-switch button { padding: 6px; }
   .hero { padding-top: 49px; padding-bottom: 43px; }
-  .hero h1 { font-size: clamp(1.1rem, 5.1vw, 3.65rem); line-height: 1.12; }
+  .hero h1 { line-height: 1.12; }
   .hero-tagline { font-size: clamp(.5rem, 2.2vw, 1.2rem); margin-top: 17px; }
   .hero-links { gap: 10px; margin-top: 25px; max-width: 355px; margin-inline: auto; }
   .button { font-size: .8125rem; padding: 10px 14px; gap: 12px; }
