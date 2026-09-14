@@ -83,13 +83,17 @@
     info.append(heading, description);
     panel.append(info);
     demo.samples.forEach(sample => {
-      const frame = element('div', { class: 'video-frame', id: `sample-panel-${sample.id}` });
+      const frame = element('div', { class: `video-frame${sample.nativeRatio ? ' video-frame-native' : ''}`, id: `sample-panel-${sample.id}` });
       if (demo.samples.length > 1) {
         frame.setAttribute('role', 'tabpanel');
         frame.setAttribute('aria-labelledby', `sample-tab-${sample.id}`);
       }
       const source = sample.src;
-      const video = element('video', { controls: '', playsinline: '', preload: 'none', poster: sample.poster, width: '1920', height: '1080', 'data-src': source });
+      const video = element('video', {
+        controls: '', playsinline: '', preload: 'none', poster: sample.poster,
+        width: sample.nativeRatio ? '3024' : '1920', height: sample.nativeRatio ? '1898' : '1080',
+        class: sample.nativeRatio ? 'video-native-ratio' : '', 'data-src': source
+      });
       annotateLabel(video, sample.label || titleKey);
       const directLink = translated('a', 'cap.open', { href: source });
       video.append(directLink);

@@ -2,8 +2,8 @@
   'use strict';
   const content = window.GANDER_BLOG;
   if (!content) return;
-  const $ = selector => document.querySelector(selector);
-  const $$ = selector => [...document.querySelectorAll(selector)];
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const sections = content.sections.map(id => document.getElementById(id)).filter(Boolean);
   const tocLinks = $$('.toc a');
   const languageStorageKey = 'gander-omni-interaction-agent-language';
@@ -80,6 +80,22 @@
     });
     video.addEventListener('error', () => { error.hidden = false; });
     video.addEventListener('loadeddata', () => { error.hidden = true; });
+  });
+
+  $$('[data-media-carousel]').forEach(carousel => {
+    const slides = $$('[data-media-slide]', carousel);
+    const count = $('[data-carousel-count]', carousel);
+    let active = 0;
+    const showSlide = next => {
+      const previous = active;
+      active = (next + slides.length) % slides.length;
+      if (previous !== active) $$('video', slides[previous]).forEach(video => video.pause());
+      slides.forEach((slide, index) => { slide.hidden = index !== active; });
+      count.textContent = `${active + 1} / ${slides.length}`;
+    };
+    $('[data-carousel-previous]', carousel).addEventListener('click', () => showSlide(active - 1));
+    $('[data-carousel-next]', carousel).addEventListener('click', () => showSlide(active + 1));
+    showSlide(0);
   });
 
   $$('.table-scroller').forEach(region => {

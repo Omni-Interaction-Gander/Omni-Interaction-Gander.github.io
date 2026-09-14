@@ -93,6 +93,8 @@ img { display: block; width: 100%; height: auto; }
 .sample-tab[aria-selected="true"] { background: #e4ebff; color: #224dcf; border-color: #c5d4ff; }
 .video-frame { margin: 0 28px 28px; border: 1px solid #dce2eb; border-radius: 10px; overflow: hidden; background: #0d111a; position: relative; }
 .video-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: contain; background: #0d111a; }
+.video-frame-native { background: #fff; }
+.video-frame video.video-native-ratio { aspect-ratio: 3024 / 1898; object-fit: cover; background: #fff; }
 .video-error { background: #fff5f3; padding: 16px 20px; font-size: .875rem; }
 .video-error p { color: #923b2d; }
 .video-error a { display: inline-block; color: #923b2d; text-decoration: underline; margin-top: 6px; }
