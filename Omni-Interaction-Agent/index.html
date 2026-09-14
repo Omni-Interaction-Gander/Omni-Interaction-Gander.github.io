@@ -7,7 +7,7 @@
  <meta property="og:description" content="通过十五个演示，了解 Gander 如何结合语音、视觉与实时对话完成智能体任务，并介绍小脑—大脑架构、交互数据构建及实验评估。">
  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
  <link rel="stylesheet" href="styles.css?v=20260915-5">
- <script src="content.js?v=20260915-9" defer=""></script><script src="app.js?v=20260915-3" defer=""></script>
+ <script src="content.js?v=20260915-10" defer=""></script><script src="app.js?v=20260915-3" defer=""></script>
 </head>
 <body id="top">
  <a data-i18n="skip" class="skip-link" href="#article">跳至文章正文</a>
@@ -28,7 +28,7 @@
     <details class="toc" open=""><summary data-i18n="toc.title">本文目录</summary><nav data-i18n-aria="toc.label" aria-label="文章目录"><ol><li><a href="#intro" data-i18n="toc.intro">多模态交互智能体</a></li><li><a href="#collaboration" data-i18n="toc.collaboration">多模态智能体交互</a></li><li><a href="#audio-agentic" data-i18n="toc.audio-agentic">语音智能体交互</a></li><li><a href="#dialogue" data-i18n="toc.dialogue">音视频全双工对话</a></li><li><a href="#reasoning" data-i18n="toc.reasoning">抗干扰、多人对话与简易推理</a></li><li><a href="#architecture" data-i18n="toc.architecture">小脑—大脑架构</a></li><li><a href="#streaming" data-i18n="toc.streaming">流式 Thinker–Talker</a></li><li><a href="#training" data-i18n="toc.training">交互数据构建</a></li><li><a href="#evaluation" data-i18n="toc.evaluation">能力评估与基准测试</a></li></ol></nav></details>
    </aside>
    <article class="article" id="article" aria-labelledby="article-title" tabindex="-1">
-   <section id="intro" aria-labelledby="heading-intro" class="article-intro"><h2 data-i18n="heading.intro" id="heading-intro" class="visually-hidden">Gander: 多模态双工交互智能体</h2><p data-i18n="p.intro.motivation">与人协作，往往是一边交流，一边观察和行动。我们会在对方说话时附和或打断，也会随着场景变化和任务进展补充新的要求。要让智能体参与这样的协作，感知、对话与任务执行就需要协同进行。</p><p data-i18n="p.intro.position">Gander 将全模态感知、实时交互与智能体任务执行整合到统一框架中。它持续接收语音、视频和文本，结合用户的口头要求、眼前的画面与后续反馈推进任务，让交流贯穿任务执行过程。核心能力体现在三个方面：</p><ul class="core-points"><li><strong data-i18n="principle.see.title">理解不断变化的环境。</strong> <span data-i18n="principle.see.body">结合声音与画面理解场景，并在相关视觉事件出现时主动提醒。</span></li><li><strong data-i18n="principle.talk.title">把握自然交流的节奏。</strong> <span data-i18n="principle.talk.body">在说话的同时听取用户反馈，区分附和、打断与无关干扰，决定继续讲述还是停下来倾听。</span></li><li><strong data-i18n="principle.act.title">让任务执行与对话同步进行。</strong> <span data-i18n="principle.act.body">后台处理复杂任务时，用户仍可通过语音交流和共享画面补充要求、确认细节或查询进度。</span></li></ul><figure class="article-figure paper-overview"><a href="../assets/figures/overview.webp" target="_blank" rel="noopener"><img src="../assets/figures/overview.webp" width="2401" height="1344" loading="lazy" decoding="async" data-i18n-alt="figure.overview.alt" alt="Gander 的能力概览，包括屏幕理解、边聊边执行任务、附和与打断、抗干扰对话和视觉事件提醒。"></a><figcaption data-i18n="figure.overview.caption">图 1｜Gander 的主要能力：在持续的多模态交流中理解用户，并异步执行任务。</figcaption></figure></section><section id="collaboration" aria-labelledby="heading-collaboration"><h2 id="heading-collaboration" data-i18n="heading.collaboration">多模态智能体交互</h2><p data-i18n="p.collaboration.visual">Gander 结合语音指令与共享画面，根据用户的后续要求实时创建并完善游戏。</p><figure class="media-figure" id="demo-visual-task">
+   <section id="intro" aria-labelledby="heading-intro" class="article-intro"><h2 data-i18n="heading.intro" id="heading-intro" class="visually-hidden">Gander: 多模态双工交互智能体</h2><p data-i18n="p.intro.motivation">与人协作，往往是一边交流，一边观察和行动。我们会在对方说话时附和或打断，也会随着场景变化和任务进展补充新的要求。要让智能体参与这样的协作，感知、对话与任务执行就需要协同进行。</p><p data-i18n="p.intro.position">Gander 将全模态感知、实时交互与智能体任务执行整合到统一框架中。它持续接收语音、视频和文本，结合用户的口头要求、眼前的画面与后续反馈推进任务，让交流贯穿任务执行过程。核心能力体现在三个方面：</p><ul class="core-points"><li><strong data-i18n="principle.see.title">理解不断变化的环境。</strong> <span data-i18n="principle.see.body">结合声音与画面理解场景，并在相关视觉事件出现时主动提醒。</span></li><li><strong data-i18n="principle.talk.title">把握自然交流的节奏。</strong> <span data-i18n="principle.talk.body">在说话的同时听取用户反馈，区分附和、打断与无关干扰，决定继续讲述还是停下来倾听。</span></li><li><strong data-i18n="principle.act.title">让任务执行与对话同步进行。</strong> <span data-i18n="principle.act.body">后台处理复杂任务时，用户仍可通过语音交流和共享画面补充要求、确认细节或查询进度。</span></li></ul><figure class="article-figure paper-overview"><a href="../assets/figures/overview.webp" target="_blank" rel="noopener"><img src="../assets/figures/overview.webp" width="2401" height="1344" loading="lazy" decoding="async" data-i18n-alt="figure.overview.alt" alt="Gander 的能力概览，包括屏幕理解、边聊边执行任务、附和与打断、抗干扰对话和视觉事件提醒。"></a><figcaption data-i18n="figure.overview.caption">图 1｜Gander 的主要能力：在持续的多模态交流中理解用户，并异步执行任务。</figcaption></figure></section><section id="collaboration" aria-labelledby="heading-collaboration"><h2 id="heading-collaboration" data-i18n="heading.collaboration">多模态智能体交互</h2><p data-i18n="p.collaboration.visual">用户先通过语音描述想要的游戏，Gander 随即发起后台编程任务并生成可运行页面。用户在试玩过程中可以继续补充玩法和交互要求，同时共享当前画面，使每一次修改都能对应到可见的按钮、布局和游戏状态。贪吃蛇与俄罗斯方块演示共同展现了这种边看结果、边交流、边迭代的协作方式。</p><figure class="media-figure" id="demo-visual-task">
    <div class="media-carousel" data-media-carousel="">
     <div class="media-label media-carousel-header">
      <div class="media-label-main">
@@ -46,15 +46,15 @@
     <div class="media-slide" data-media-slide="" data-media-number="1">
      <div class="media-shell media-shell-native"><video class="video-native-ratio" controls="" playsinline="" preload="metadata" poster="asset/posters/visual-task-english.jpg" width="3024" height="1898" data-i18n-aria="video.visual-task.demo2.title" aria-label="贪吃蛇游戏演示（英语）"><source src="asset/videos/visual-task-english.mov" type="video/mp4"><a data-i18n="video.open" href="asset/videos/visual-task-english.mov">直接打开视频</a></video>
      <div class="video-error" role="status" hidden=""><p data-i18n="video.error">视频暂时无法播放，请尝试直接打开。</p><a data-i18n="video.open" href="asset/videos/visual-task-english.mov" target="_blank" rel="noopener">直接打开视频</a></div></div>
-     <figcaption data-i18n="video.visual-task.demo2.caption">创建贪吃蛇小游戏，并实时修改画面内容（英语）。</figcaption>
+     <figcaption data-i18n="video.visual-task.demo2.caption">用户通过语音创建贪吃蛇小游戏，在查看运行结果后继续提出修改要求；Gander 结合共享画面定位相关界面元素，并实时更新游戏内容。</figcaption>
     </div>
     <div class="media-slide" data-media-slide="" data-media-number="2" hidden="">
      <div class="media-shell"><video controls="" playsinline="" preload="none" src="asset/videos/visual-task.mp4" poster="asset/posters/visual-task.jpg" width="1920" height="1080" data-i18n-aria="video.visual-task.original.title" aria-label="Original Tetris demo"><a data-i18n="video.open" href="asset/videos/visual-task.mp4">直接打开视频</a></video>
      <div class="video-error" role="status" hidden=""><p data-i18n="video.error">视频暂时无法播放，请尝试直接打开。</p><a data-i18n="video.open" href="asset/videos/visual-task.mp4" target="_blank" rel="noopener">直接打开视频</a></div></div>
-     <figcaption data-i18n="video.visual-task.original.caption">通过语音创建游戏、添加功能，并利用共享屏幕请求更改按钮颜色（中文）。</figcaption>
+     <figcaption data-i18n="video.visual-task.original.caption">用户先创建俄罗斯方块游戏，再追加点击重开功能，并根据共享画面要求修改暂停按钮配色，展示连续指令如何作用于同一任务。</figcaption>
     </div>
    </div>
- </figure><p data-i18n="p.collaboration.report">这两个演示展示了 Gander 如何以屏幕内容为依据开展调研。它可以阅读模型网页或技术报告，整理关键信息，并生成结构化的对比或总结。</p><figure class="media-figure" id="demo-technical-report-reading">
+ </figure><p data-i18n="p.collaboration.report">当网页或文档出现在共享屏幕中时，Gander 可以直接把可见内容作为调研入口，无需用户重新口述全部背景。它识别当前材料，启动后台检索与分析，并在处理过程中继续接收补充要求。最终结果被整理为结构化的模型对比或技术总结，方便用户核对信息并继续追问。</p><figure class="media-figure" id="demo-technical-report-reading">
    <div class="media-carousel" data-media-carousel="">
     <div class="media-label media-carousel-header">
      <div class="media-label-main">
@@ -72,16 +72,16 @@
     <div class="media-slide" data-media-slide="" data-media-number="3">
      <div class="media-shell media-shell-native"><video class="video-native-ratio" controls="" playsinline="" preload="metadata" poster="asset/posters/model-comparison-english.jpg" width="3024" height="1898" data-i18n-aria="video.technical-report-reading.demo1.title" aria-label="模型对比调研演示（英语）"><source src="asset/videos/model-comparison-english.mov" type="video/mp4"><a data-i18n="video.open" href="asset/videos/model-comparison-english.mov">直接打开视频</a></video>
      <div class="video-error" role="status" hidden=""><p data-i18n="video.error">视频暂时无法播放，请尝试直接打开。</p><a data-i18n="video.open" href="asset/videos/model-comparison-english.mov" target="_blank" rel="noopener">直接打开视频</a></div></div>
-     <figcaption data-i18n="video.technical-report-reading.demo1.caption">浏览模型页面，通过共享屏幕发起调研，并生成模型对比报告（英语）。</figcaption>
+     <figcaption data-i18n="video.technical-report-reading.demo1.caption">用户共享模型介绍页面并发起调研；Gander 汇总公开资料，比较不同模型的规格与能力，并生成便于浏览的结构化对比页面。</figcaption>
     </div>
     <div class="media-slide" data-media-slide="" data-media-number="4" hidden="">
      <div class="media-shell"><video controls="" playsinline="" preload="none" src="asset/videos/technical-report-reading.mp4" poster="asset/posters/technical-report-reading.jpg" width="1920" height="1080" data-i18n-aria="video.technical-report-reading.original.title" aria-label="原始技术报告调研演示（中文）"><a data-i18n="video.open" href="asset/videos/technical-report-reading.mp4">直接打开视频</a></video>
      <div class="video-error" role="status" hidden=""><p data-i18n="video.error">视频暂时无法播放，请尝试直接打开。</p><a data-i18n="video.open" href="asset/videos/technical-report-reading.mp4" target="_blank" rel="noopener">直接打开视频</a></div></div>
-     <figcaption data-i18n="video.technical-report-reading.original.caption">共享技术报告，发起调研与总结任务。视频中的部分内容以 5 倍速播放（中文）。</figcaption>
+     <figcaption data-i18n="video.technical-report-reading.original.caption">用户共享一份技术报告，Gander 读取可见内容、确认调研目标并在后台整理总结。为完整呈现任务进展，视频中的部分执行过程以 5 倍速播放。</figcaption>
     </div>
    </div>
  </figure></section>
-<section id="audio-agentic" aria-labelledby="heading-audio-agentic"><h2 id="heading-audio-agentic" data-i18n="heading.audio-agentic">语音智能体交互</h2><p data-i18n="p.collaboration.basic">用户希望查找上海周边适合拍摄的地点，并比较各自的优缺点。Gander 接收语音要求后，发起后台信息搜集任务。用户在等待期间可以询问进展，Gander 查询任务状态并作出回应，随后给出地点建议。</p><figure class="media-figure" id="demo-collaborative-task">
+<section id="audio-agentic" aria-labelledby="heading-audio-agentic"><h2 id="heading-audio-agentic" data-i18n="heading.audio-agentic">语音智能体交互</h2><p data-i18n="p.collaboration.basic">用户只需通过语音说明目标和约束，Gander 就会在后台开展信息搜集，同时保持对话通道可用。任务执行期间，用户仍可追问进度、补充偏好或调整范围，新的要求会被接入正在运行的任务。两个演示围绕上海周边拍摄地点展开，最终给出候选地点、各自优缺点以及适用场景。</p><figure class="media-figure" id="demo-collaborative-task">
    <div class="media-carousel" data-media-carousel="">
     <div class="media-label media-carousel-header">
      <div class="media-label-main">
@@ -99,12 +99,12 @@
     <div class="media-slide" data-media-slide="" data-media-number="5">
      <div class="media-shell media-shell-native"><video class="video-native-ratio" controls="" playsinline="" preload="metadata" poster="asset/posters/collaborative-task-english.jpg" width="3024" height="1898" data-i18n-aria="video.collaborative-task.demo3.title" aria-label="拍摄地点调研演示（英语）"><source src="asset/videos/collaborative-task-english.mov" type="video/mp4"><a data-i18n="video.open" href="asset/videos/collaborative-task-english.mov">直接打开视频</a></video>
      <div class="video-error" role="status" hidden=""><p data-i18n="video.error">视频暂时无法播放，请尝试直接打开。</p><a data-i18n="video.open" href="asset/videos/collaborative-task-english.mov" target="_blank" rel="noopener">直接打开视频</a></div></div>
-     <figcaption data-i18n="video.collaborative-task.demo3.caption">通过语音查找上海周边拍摄地点、比较优缺点，并在任务执行期间查询进度（英语）。</figcaption>
+     <figcaption data-i18n="video.collaborative-task.demo3.caption">用户要求寻找上海周边适合拍摄的地点并比较优缺点，在等待期间继续查询任务进度；Gander 完成调研后生成包含候选地点与对比信息的结果页面。</figcaption>
     </div>
     <div class="media-slide" data-media-slide="" data-media-number="6" hidden="">
      <div class="media-shell"><video controls="" playsinline="" preload="none" src="asset/videos/collaborative-task.mp4" poster="asset/posters/collaborative-task.jpg" width="1920" height="1080" data-i18n-aria="video.collaborative-task.original.title" aria-label="原始拍摄地点调研演示（中文）"><a data-i18n="video.open" href="asset/videos/collaborative-task.mp4">直接打开视频</a></video>
      <div class="video-error" role="status" hidden=""><p data-i18n="video.error">视频暂时无法播放，请尝试直接打开。</p><a data-i18n="video.open" href="asset/videos/collaborative-task.mp4" target="_blank" rel="noopener">直接打开视频</a></div></div>
-     <figcaption data-i18n="video.collaborative-task.original.caption">查找拍摄地点、查询任务进度，并获取地点建议（中文）。</figcaption>
+     <figcaption data-i18n="video.collaborative-task.original.caption">Gander 接收拍摄地点调研要求后在后台持续执行，用户无需结束对话即可了解进展，并在任务完成后获得地点建议及其优缺点分析。</figcaption>
     </div>
    </div>
  </figure></section>
